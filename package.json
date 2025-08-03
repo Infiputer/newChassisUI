@@ -1,0 +1,38 @@
+{
+  "name": "chassisui",
+  "version": "1.0.0",
+  "description": "Multi-model chat interface with conversation branching",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "setup-db": "cd server && npm run setup-db",
+    "setup-ollama": "cd server && node scripts/setup-ollama.js"
+  },
+  "keywords": [
+    "chat",
+    "ai",
+    "multi-model",
+    "conversation-branching"
+  ],
+  "author": "ChassisUI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/prismjs": "^1.26.5",
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.0.0",
+    "marked": "^16.0.0",
+    "pg": "^8.16.3",
+    "prismjs": "^1.30.0",
+    "react-markdown": "^9.1.0",
+    "rehype-prism-plus": "^2.0.1",
+    "svg-pan-zoom": "^3.6.2"
+  }
+}

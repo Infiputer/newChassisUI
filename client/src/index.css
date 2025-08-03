@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'prismjs/themes/prism.css';
+
+/* Prism Okaidia theme for dark mode only */
+.dark code[class*="language-"],
+.dark pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.dark pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+.dark :not(pre) > code[class*="language-"],
+.dark pre[class*="language-"] {
+	background: #23202b;
+}
+
+.dark :not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+code{
+  text-shadow: none !important;
+}
+
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.doctype,
+.dark .token.cdata {
+	color: #8292a2;
+}
+
+.dark .token.punctuation {
+	color: #f8f8f2;
+}
+
+.dark .token.namespace {
+	opacity: .7;
+}
+
+.dark .token.property,
+.dark .token.tag,
+.dark .token.constant,
+.dark .token.symbol,
+.dark .token.deleted {
+	color: #f92672;
+}
+
+.dark .token.boolean,
+.dark .token.number {
+	color: #ae81ff;
+}
+
+.dark .token.selector,
+.dark .token.attr-name,
+.dark .token.string,
+.dark .token.char,
+.dark .token.builtin,
+.dark .token.inserted {
+	color: #a6e22e;
+}
+
+.dark .token.operator,
+.dark .token.entity,
+.dark .token.url,
+.dark .language-css .token.string,
+.dark .style .token.string,
+.dark .token.variable {
+	color: #f8f8f2;
+}
+
+.token.operator{
+  background: none !important;
+}
+
+.dark .token.atrule,
+.dark .token.attr-value,
+.dark .token.function,
+.dark .token.class-name {
+	color: #e6db74;
+}
+
+.dark .token.keyword {
+	color: #66d9ef;
+}
+
+.dark .token.regex,
+.dark .token.important {
+	color: #fd971f;
+}
+
+.dark .token.important,
+.dark .token.bold {
+	font-weight: bold;
+}
+.dark .token.italic {
+	font-style: italic;
+}
+
+.dark .token.entity {
+	cursor: help;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.6s, color 0.6s;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+    transition: background-color 0.6s, color 0.6s;
+  }
+  body.dark, .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .dark .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-gray-100;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .dark .input-field {
+    @apply bg-gray-800 border-gray-700 text-gray-100;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  }
+  
+  .dark .card {
+    @apply bg-gray-800 border-gray-700 text-gray-100;
+  }
+  
+  .sidebar {
+    @apply bg-white border-r border-gray-200 h-full;
+  }
+  
+  .dark .sidebar {
+    @apply bg-gray-900 border-gray-800 text-gray-100;
+  }
+  
+  .message-user {
+    @apply bg-primary-600 text-white rounded-lg p-3 max-w-[80%] ml-auto;
+  }
+  
+  .message-assistant {
+    @apply bg-gray-100 text-gray-900 rounded-lg p-3 max-w-[80%] mr-auto;
+  }
+  
+  .dark .message-assistant {
+    @apply bg-gray-800 text-gray-100;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom transparent scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* For Firefox */
+* {
+  scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
+  scrollbar-width: thin;
+}
+
+.dark .hover\:bg-gray-50:hover .dark\:text-white {
+  color: #000 !important;
+}
+
+pre[class*="language-"] {
+  display: inline-block;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  max-width: 600px; /* or whatever max width you prefer */
+  overflow-x: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em;
+}
+
+@keyframes heartbeat-breath {
+  0% {background-color: inherit; }
+  30% {background-color: #9e65ff; }
+  100% {background-color: inherit; }
+}
+
+.heartbeat-breath {
+  animation: heartbeat-breath 2.2s cubic-bezier(0.4, 0, 0.6, 1) 1;
+  /* Optionally, add border-radius for pill/rounded look */
+  border-radius: 0.5rem;
+}
+
+@keyframes heartbeat-breath-dark {
+  0% {background-color: inherit; }
+  30% {background-color: #370096; }
+  100% {background-color: inherit; }
+}
+
+.dark .heartbeat-breath {
+  animation: heartbeat-breath-dark 2.2s cubic-bezier(0.4, 0, 0.6, 1) 1;
+  background-color: inherit;
+  border-radius: 0.5rem;
+} 
+
+/* Mermaid Diagram Styles */
+.mermaid-diagram {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  border: 1px solid #e9ecef;
+  min-width: 400px;
+  min-height: 300px;
+  font-size: 1.5em;
+}
+
+.dark .mermaid-diagram {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure mermaid diagrams are responsive */
+.mermaid-diagram .mermaid {
+  text-align: center;
+}
+
+/* Style for mermaid code blocks */
+.mermaid-code-block {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.dark .mermaid-code-block {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+
+/* Markdown content styles */
+.markdown-content {
+  line-height: 1.6;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.markdown-content h1 {
+  font-size: 1.875rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.25rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.dark .markdown-content blockquote {
+  border-left-color: #4b5563;
+  color: #9ca3af;
+}
+
+.markdown-content pre {
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.dark .markdown-content pre {
+  background: #374151;
+}
+
+.markdown-content code {
+  background: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.dark .markdown-content code {
+  background: #374151;
+}
+
+/* Hide Mermaid version badge if present */
+.mermaid .mermaid-version,
+.mermaid-version {
+  display: none !important;
+}
+
+/* Hide all Mermaid dmermaid-* divs */
+div[id^="dmermaid-"] {
+  display: none !important;
+} 
