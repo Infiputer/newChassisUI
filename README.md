@@ -2,7 +2,7 @@
 
 ChassisUI is a modern, multi-model chat interface that allows users to have conversations with different AI models. It features conversation branching, real-time streaming, and advanced analytics for model discovery.
 
-## 🚀 Features
+## Features
 
 ### Core Functionality
 - **Multi-Model Support**: Choose from different AI models for each conversation
@@ -18,7 +18,7 @@ ChassisUI is a modern, multi-model chat interface that allows users to have conv
 - **Analytics**: Track model usage and get personalized recommendations
 - **Responsive Design**: Modern, clean interface that works on all devices
 
-## 🏗️ Architecture
+## Architecture
 
 ### Backend (Node.js/Express)
 - **Database**: PostgreSQL with tree-structured message storage
@@ -37,13 +37,13 @@ ChassisUI is a modern, multi-model chat interface that allows users to have conv
 - **Analytics**: Comprehensive usage tracking
 - **User Management**: Secure user authentication and profiles
 
-## 📋 Prerequisites
+## Prerequisites
 
-- Node.js 16+ 
+- Node.js 16+
 - PostgreSQL 12+
 - npm or yarn
 
-## 🛠️ Installation
+## Installation
 
 ### 1. Clone the Repository
 ```bash
@@ -120,13 +120,13 @@ cd server
 npm start
 ```
 
-## 🌐 Access the Application
+## Access the Application
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:3001
 - **Health Check**: http://localhost:3001/health
 
-## 📖 Usage
+## Usage
 
 ### 1. Create an Account
 - Visit http://localhost:3000/register
@@ -148,16 +148,16 @@ npm start
 - Browse trending, recent, and recommended models
 - Try different models for different types of conversations
 
-## 🔧 Configuration
+## Configuration
 
 ### Adding New Models
 To add new AI models, insert records into the database:
 
 ```sql
-INSERT INTO models (name, description, short_description, long_description) 
+INSERT INTO models (name, description, short_description, long_description)
 VALUES ('Your Model', 'Description', 'Short desc', 'Long description');
 
-INSERT INTO model_endpoints (model_id, url, is_active, weight) 
+INSERT INTO model_endpoints (model_id, url, is_active, weight)
 VALUES ('model-uuid', 'https://your-model-api.com', true, 1);
 ```
 
@@ -166,7 +166,7 @@ VALUES ('model-uuid', 'https://your-model-api.com', true, 1);
 - Modify Tailwind config in `client/tailwind.config.js`
 - Update components in `client/src/components/`
 
-## 🚀 Deployment
+## Deployment
 
 ### Environment Variables
 Set production environment variables:
@@ -189,7 +189,7 @@ npm run build
 - Set up reverse proxy (nginx) if needed
 - Configure SSL certificates
 
-## 🔒 Security Features
+## Security Features
 
 - **JWT Authentication**: Secure token-based authentication
 - **Password Hashing**: bcrypt for password security
@@ -198,7 +198,7 @@ npm run build
 - **Input Validation**: Server-side validation for all inputs
 - **SQL Injection Protection**: Parameterized queries
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -226,7 +226,7 @@ npm run build
 - Client logs: Browser developer tools
 - Database logs: PostgreSQL logs
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -234,22 +234,29 @@ npm run build
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
-## 🆘 Support
+## Support
 
 For support and questions:
 - Create an issue in the repository
 - Check the troubleshooting section
 - Review the code comments for implementation details
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - **File Upload Support**: Upload and analyze documents
 - **Voice Input**: Speech-to-text integration
 - **Export Conversations**: PDF, Markdown export
 - **Collaborative Chats**: Share conversations with others
 - **Advanced Analytics**: Detailed usage insights
-- **Model Fine-tuning**: Custom model training interface 
+- **Model Fine-tuning**: Custom model training interface
+
+## Recovery Notes
+
+Local secrets belong in `.env`. Use `.env.example` as the template; `TEST_USER_PASSWORD`
+is required for the test-user helper.
+
+Generated React build output and Python caches were intentionally omitted.

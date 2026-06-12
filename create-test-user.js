@@ -13,6 +13,9 @@ const createTestUser = async () => {
     const email = 'test@example.com';
     const password = process.env.TEST_USER_PASSWORD || "";
     const name = 'Test User';
+    if (!password) {
+      throw new Error('Set TEST_USER_PASSWORD before creating the test user.');
+    }
     
     // Hash the password
     const passwordHash = await bcrypt.hash(password, 10);
@@ -26,7 +29,6 @@ const createTestUser = async () => {
     if (existingUser.rows.length > 0) {
       console.log('Test user already exists!');
       console.log('Email:', email);
-      console.log('Password:', password);
       return;
     }
     
@@ -39,7 +41,6 @@ const createTestUser = async () => {
     console.log('Test user created successfully!');
     console.log('User ID:', result.rows[0].user_id);
     console.log('Email:', email);
-    console.log('Password:', password);
     console.log('\nYou can now log in at: http://192.168.0.183:3000/login');
     
   } catch (error) {
